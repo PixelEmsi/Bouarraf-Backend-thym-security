@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="adminPortal">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<title>Insert title here</title>
+</head>
+<body>
+<section layout:fragment="pageContent">
+<div class="container">
+
+<form action="/action_page.php">
+  <div class="form-group">
+    <label for="name"> Titre</label>
+    <input type="text" class="form-control" placeholder="Enter Titre" id="titre">
+  </div>
+   <div class="form-group">
+    <label for="name"> Duree</label>
+    <input type="text" class="form-control" placeholder="Enter une duree" id="duree">
+  </div>
+  <div class="form-group">
+    <label for="name"> Realisateur</label>
+    <input type="text" class="form-control" placeholder="Enter Realisateur" id="realisateur">
+  </div>
+  <div class="form-group">
+    <label for="name"> Description</label>
+    <input type="text" class="form-control" placeholder="Enter Description" id="description">
+  </div>
+  <div class="form-group">
+    <label for="name"> Nom Photo</label>
+    <input type="text" class="form-control" placeholder="Enter nom photo" id="photo">
+  </div>
+  <div class="form-group">
+    <label for="date">Date de Sortie:</label>
+    <input type="date" class="form-control"  id="date">
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+</section>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="adminPortal">
+<head>
+<meta charset="ISO-8859-1">
+<title>Page films</title>
+</head>
+<body>
+	
+	<section layout:fragment="pageContent">
+		
+		<div class="container mt-5">
+		<div class="card">
+			<div class="card-header">
+				<h1>Liste des films</h1>
+			</div>
+			<div class="card-body">
+				<div>
+				<form method="get" th:action="@{films}">
+					<label>Titre</label>	
+					<input type="text" name="keyword" th:value="${keyword}">
+				 	<button class="btn btn-success">Rechercher</button>
+				</form>
+				</div>
+				<table class="table"> 
+					<tr>
+						<th>Id</th><th>Titre</th><th>Duree</th><th>Photo</th>
+					</tr>
+		
+					<tr th:each="f:${films}">
+						<td th:text="${f.id}"></td>	
+						<td th:text="${f.titre}"></td>	
+						<td th:text="${f.duree}"></td>	
+						<td th:text="${f.photo}"></td>	
+						<td>
+						<a class="btn  btn-danger" th:href="@{deleteFilm(id=${f.id},page=${currentPage},size=${size},keyword=${keyword})}"> Delete </a>
+						</td>
+					</tr>
+				
+				</table>
+			</div>	
+		</div>
+		<ul class="nav nav-pills">
+			<li th:each="page,status:${pages}">
+				<a th:class="${status.index==currentPage}?'btn btn-primary' : 'btn' "  th:text="${status.index}" th:href="@{films(page=${status.index},keyword=${keyword})}"></a>
+			</li>
+		</ul>
+	</div>
+		
+	</section>
+
+	 
+</body>
+</html>
